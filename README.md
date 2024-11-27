@@ -33,7 +33,10 @@ RATE_LIMIT_MAX_REQUESTS=100
 ```
 
 ## Deployment
-Deployed at: [YOUR_DEPLOYMENT_LINK_HERE]
+Deployed at:
+POST : https://url-shortner-app-9cj4.onrender.com/shorten
+GET :  https://url-shortner-app-9cj4.onrender.com/:shortId
+GET : https://url-shortner-app-9cj4.onrender.com/status/:shortId
 
 ## API Endpoints
 1. `POST /shorten`
