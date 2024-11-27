@@ -39,6 +39,7 @@ Deployed at: [YOUR_DEPLOYMENT_LINK_HERE]
 1. `POST /shorten`
    - Request: `{ "originalUrl": "https://example.com" }`
    - Response: `{ "shortUrl": "http://short.url/abc123" }`
+   - deployed Url `{https://url-shortner-app-9cj4.onrender.com/shorten}`
 
 2. `GET /:shortId`
    - Redirects to original URL
