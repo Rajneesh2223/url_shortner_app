@@ -39,6 +39,7 @@ Deployed at:
 - GET : https://url-shortner-app-9cj4.onrender.com/status/:shortId
 - https://url-shortner-app-9cj4.onrender.com/shorten
 - https://url-shortner-app-9cj4.onrender.com/99ZdXiBE9
+- http://url-shortner-app-9cj4.onrender.com/stats/Ez10GhBJR
 
 ## API Endpoints
 1. `POST /shorten`
