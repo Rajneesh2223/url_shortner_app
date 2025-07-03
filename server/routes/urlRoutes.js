@@ -7,11 +7,11 @@ const URL = require('../models/URL');
 
 router.post('/shorten', async (req, res) => {
   try {
-    const { originalUrl } = req.body;
-    if (!originalUrl || !validator.isURL(originalUrl, { require_protocol: true })) {
+    const { oriUrl } = req.body;
+    if (!oriUrl || !validator.isURL(oriUrl, { require_protocol: true })) {
       return res.status(400).json({ error: 'Invalid URL' });
     }
-    let existingUrl = await URL.findOne({ originalUrl });
+    let existingUrl = await URL.findOne({ oriUrl });
     if (existingUrl) {
       return res.status(200).json({ 
         shortUrl: `${req.protocol}://${req.get('host')}/${existingUrl.shortId}` 
@@ -19,7 +19,7 @@ router.post('/shorten', async (req, res) => {
     }
     const shortId = shortid.generate();
     const newUrl = new URL({
-      originalUrl,
+      oriUrl,
       shortId
     });
     await newUrl.save();
@@ -45,7 +45,7 @@ router.get('/:shortId', async (req, res) => {
       urlEntry.clicks += 1;
       urlEntry.lastAccessedAt = new Date();
       await urlEntry.save();
-      res.redirect(urlEntry.originalUrl);
+      res.redirect(urlEntry.oriUrl);
     } catch (error) {
       console.error('Detailed Error:', error);
       res.status(500).json({ 
